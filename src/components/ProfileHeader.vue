@@ -1,16 +1,3 @@
-<script setup>
-import { toRefs } from 'vue'
-import { RouterLink } from 'vue-router'
-
-const props = defineProps({
-  bio: String,
-  name: String,
-  username: String
-})
-
-const { bio, name, username } = toRefs(props)
-</script>
-
 <template>
   <header>
     <div className="user-bio">
@@ -26,6 +13,19 @@ const { bio, name, username } = toRefs(props)
     </div>
   </header>
 </template>
+
+<script setup>
+import { toRefs } from 'vue'
+import { RouterLink } from 'vue-router'
+
+const props = defineProps({
+  bio: String,
+  name: String,
+  username: String
+})
+
+const { bio, name, username } = toRefs(props)
+</script>
 
 <style scoped>
 header {
@@ -51,8 +51,8 @@ header {
 .view-repo {
   padding-inline: 32px;
   padding-block: 11px;
-  color: var(--primary);
-  background-color: var(--white);
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.9);
   font-family: inherit;
   font-weight: 600;
   border-radius: 6px;

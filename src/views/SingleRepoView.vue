@@ -13,7 +13,7 @@ const route = useRoute()
 
 onMounted(async () => {
   try {
-    const res = await fetch(`https://api.github.com/repos/alvinokafor/${route.params.id}`)
+    const res = await fetch(`https://api.github.com/repos/josh-alhassan/${route.params.id}`)
     const result = await res.json()
     repo.value = result
     isLoading.value = false

@@ -1,29 +1,3 @@
-<script setup>
-import { onMounted, ref } from 'vue'
-
-import UserImage from '../components/UserImage.vue'
-import ProfileHeader from '../components/ProfileHeader.vue'
-import UserInfo from '../components/UserInfo.vue'
-import AccountInfo from '../components/AccountInfo.vue'
-import AvatarLoader from '../components/loader/AvatarLoader.vue'
-import HomeLoader from '../components/loader/HomeLoader.vue'
-
-const profile = ref([])
-const isLoading = ref(true)
-
-onMounted(async () => {
-  let result
-  try {
-    const res = await fetch('https://api.github.com/users/alvinokafor')
-    result = await res.json()
-    profile.value = result
-    isLoading.value = false
-  } catch (err) {
-    throw new Error('Error:' + err)
-  }
-})
-</script>
-
 <template>
   <main>
     <section v-if="!isLoading" class="homeContainer flex">
@@ -59,6 +33,32 @@ onMounted(async () => {
     </section>
   </main>
 </template>
+
+<script setup>
+import { onMounted, ref } from 'vue'
+
+import UserImage from '../components/UserImage.vue'
+import ProfileHeader from '../components/ProfileHeader.vue'
+import UserInfo from '../components/UserInfo.vue'
+import AccountInfo from '../components/AccountInfo.vue'
+import AvatarLoader from '../components/loader/AvatarLoader.vue'
+import HomeLoader from '../components/loader/HomeLoader.vue'
+
+const profile = ref([])
+const isLoading = ref(true)
+
+onMounted(async () => {
+  let result
+  try {
+    const res = await fetch('https://api.github.com/users/josh-alhassan')
+    result = await res.json()
+    profile.value = result
+    isLoading.value = false
+  } catch (err) {
+    throw new Error('Error:' + err)
+  }
+})
+</script>
 
 <style scoped>
 .homeContainer {

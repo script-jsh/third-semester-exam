@@ -28,7 +28,7 @@ const currentSlice = computed(() => {
 
 onMounted(async () => {
   try {
-    const res = await fetch('https://api.github.com/users/alvinokafor/repos')
+    const res = await fetch('https://api.github.com/users/josh-alhassan/repos')
     const result = await res.json()
     repositories.value = result
     buttonLimit.value = Math.ceil(repositories.value.length / reposPerPage.value)

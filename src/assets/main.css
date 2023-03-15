@@ -1,11 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap');
 
 :root {
-  --primary: #141c2f;
-  --secondary: #1f2a48;
   --blue: #0c57b1;
-  --grey: #878d9b;
-  --white: #fff;
+  /* --grey: #878d9b; */
+  /* --white: #fff; */
 }
 
 * {
