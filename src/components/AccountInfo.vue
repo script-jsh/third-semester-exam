@@ -1,16 +1,3 @@
-<script setup>
-import { toRefs } from 'vue'
-import { RouterLink } from 'vue-router'
-
-const props = defineProps({
-  followers: Number,
-  following: Number,
-  repos: Number
-})
-
-const { followers, following, repos } = toRefs(props)
-</script>
-
 <template>
   <section class="account-info">
     <RouterLink to="/repositories">
@@ -31,6 +18,19 @@ const { followers, following, repos } = toRefs(props)
     </div>
   </section>
 </template>
+
+<script setup>
+import { toRefs } from 'vue'
+import { RouterLink } from 'vue-router'
+
+const props = defineProps({
+  followers: Number,
+  following: Number,
+  repos: Number
+})
+
+const { followers, following, repos } = toRefs(props)
+</script>
 
 <style scoped>
 .account-info {

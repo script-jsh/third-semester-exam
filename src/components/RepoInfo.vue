@@ -1,16 +1,3 @@
-<script setup>
-import { toRefs } from 'vue'
-const props = defineProps({
-  owner: String,
-  owner_url: String,
-  language: String,
-  license: String,
-  repo_url: String
-})
-
-const { owner, owner_url, language, license, repo_url } = toRefs(props)
-</script>
-
 <template>
   <section class="repo-info">
     <p>
@@ -25,6 +12,19 @@ const { owner, owner_url, language, license, repo_url } = toRefs(props)
     </div>
   </section>
 </template>
+
+<script setup>
+import { toRefs } from 'vue'
+const props = defineProps({
+  owner: String,
+  owner_url: String,
+  language: String,
+  license: String,
+  repo_url: String
+})
+
+const { owner, owner_url, language, license, repo_url } = toRefs(props)
+</script>
 
 <style scoped>
 .repo-info {

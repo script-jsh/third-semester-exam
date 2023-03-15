@@ -1,28 +1,3 @@
-<script setup>
-import { toRefs } from 'vue'
-
-const props = defineProps({
-  pageNumbers: Array,
-  currentPage: Number
-})
-
-const { pageNumbers, currentPage } = toRefs(props)
-
-const emit = defineEmits(['nextPage', 'prevPage', 'pageJump'])
-
-const handleNext = () => {
-  emit('nextPage')
-}
-
-const handlePrev = () => {
-  emit('prevPage')
-}
-
-const handlePageJump = (btnNum) => {
-  emit('pageJump', btnNum)
-}
-</script>
-
 <template>
   <div class="pagination">
     <button
@@ -51,6 +26,31 @@ const handlePageJump = (btnNum) => {
     </button>
   </div>
 </template>
+
+<script setup>
+import { toRefs } from 'vue'
+
+const props = defineProps({
+  pageNumbers: Array,
+  currentPage: Number
+})
+
+const { pageNumbers, currentPage } = toRefs(props)
+
+const emit = defineEmits(['nextPage', 'prevPage', 'pageJump'])
+
+const handleNext = () => {
+  emit('nextPage')
+}
+
+const handlePrev = () => {
+  emit('prevPage')
+}
+
+const handlePageJump = (btnNum) => {
+  emit('pageJump', btnNum)
+}
+</script>
 
 <style scoped>
 .pagination {

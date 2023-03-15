@@ -1,16 +1,3 @@
-<script setup>
-import { toRefs } from 'vue'
-import { RouterLink } from 'vue-router'
-
-const props = defineProps({
-  repo: Object,
-  index: Number,
-  currentPage: Number
-})
-
-const { repo, index, currentPage } = toRefs(props)
-</script>
-
 <template>
   <RouterLink :to="`/repositories/${repo.name}`">
     <div className="repo-card flex">
@@ -23,6 +10,19 @@ const { repo, index, currentPage } = toRefs(props)
     </div>
   </RouterLink>
 </template>
+
+<script setup>
+import { toRefs } from 'vue'
+import { RouterLink } from 'vue-router'
+
+const props = defineProps({
+  repo: Object,
+  index: Number,
+  currentPage: Number
+})
+
+const { repo, index, currentPage } = toRefs(props)
+</script>
 
 <style scoped>
 .repo-card {

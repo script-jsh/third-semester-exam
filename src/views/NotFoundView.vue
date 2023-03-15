@@ -1,6 +1,3 @@
-<script setup>
-import { RouterLink } from 'vue-router'
-</script>
 
 <template>
   <section class="not-found">
@@ -16,6 +13,10 @@ import { RouterLink } from 'vue-router'
     </div>
   </section>
 </template>
+
+<script setup>
+import { RouterLink } from 'vue-router'
+</script>
 
 <style scoped>
 .not-found {

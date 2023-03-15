@@ -1,28 +1,3 @@
-<script setup>
-import { ref, onMounted } from 'vue'
-import { useRoute, RouterLink } from 'vue-router'
-
-import RepoDescription from '../components/RepoDescription.vue'
-import RepoMetrics from '../components/RepoMetrics.vue'
-import RepoInfo from '../components/RepoInfo.vue'
-import HomeLoader from '../components/loader/HomeLoader.vue'
-
-const repo = ref([])
-const isLoading = ref(true)
-const route = useRoute()
-
-onMounted(async () => {
-  try {
-    const res = await fetch(`https://api.github.com/repos/josh-alhassan/${route.params.id}`)
-    const result = await res.json()
-    repo.value = result
-    isLoading.value = false
-  } catch (err) {
-    throw new Error('Error:' + err)
-  }
-})
-</script>
-
 <template>
   <section class="single-repo">
     <div class="repo-header">
@@ -56,6 +31,31 @@ onMounted(async () => {
     </div>
   </section>
 </template>
+
+<script setup>
+import { ref, onMounted } from 'vue'
+import { useRoute, RouterLink } from 'vue-router'
+
+import RepoDescription from '../components/RepoDescription.vue'
+import RepoMetrics from '../components/RepoMetrics.vue'
+import RepoInfo from '../components/RepoInfo.vue'
+import HomeLoader from '../components/loader/HomeLoader.vue'
+
+const repo = ref([])
+const isLoading = ref(true)
+const route = useRoute()
+
+onMounted(async () => {
+  try {
+    const res = await fetch(`https://api.github.com/repos/josh-alhassan/${route.params.id}`)
+    const result = await res.json()
+    repo.value = result
+    isLoading.value = false
+  } catch (err) {
+    throw new Error('Error:' + err)
+  }
+})
+</script>
 
 <style scoped>
 .back-btn {

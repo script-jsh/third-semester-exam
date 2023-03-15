@@ -1,14 +1,3 @@
-<script setup>
-import { toRefs } from 'vue'
-const props = defineProps({
-  forks: Number,
-  watchers: Number,
-  open_issues: Number
-})
-
-const { forks, watchers, open_issues } = toRefs(props)
-</script>
-
 <template>
   <section className="repo-metrics">
     <div className="open-issues">
@@ -27,6 +16,17 @@ const { forks, watchers, open_issues } = toRefs(props)
     </div>
   </section>
 </template>
+
+<script setup>
+import { toRefs } from 'vue'
+const props = defineProps({
+  forks: Number,
+  watchers: Number,
+  open_issues: Number
+})
+
+const { forks, watchers, open_issues } = toRefs(props)
+</script>
 
 <style scoped>
 .repo-metrics {

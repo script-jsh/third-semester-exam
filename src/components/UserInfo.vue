@@ -1,15 +1,3 @@
-<script setup>
-import { toRefs } from 'vue'
-
-const props = defineProps({
-  location: String,
-  url: String,
-  twitter: String
-})
-
-const { location, url, twitter } = toRefs(props)
-</script>
-
 <template>
   <section class="user-info flex">
     <div class="info-div">
@@ -41,6 +29,18 @@ const { location, url, twitter } = toRefs(props)
     </div>
   </section>
 </template>
+
+<script setup>
+import { toRefs } from 'vue'
+
+const props = defineProps({
+  location: String,
+  url: String,
+  twitter: String
+})
+
+const { location, url, twitter } = toRefs(props)
+</script>
 
 <style scoped>
 .user-info {

@@ -1,3 +1,39 @@
+<template>
+  <section class="repo-list">
+    <div class="repo-header">
+      <RouterLink to="/">
+        <div class="back-btn flex">
+          <i class="fa-solid fa-arrow-left"></i>
+          <p>Back</p>
+        </div>
+      </RouterLink>
+      <h3>Repositories</h3>
+    </div>
+
+    <div v-if="!isLoading">
+      <RepoItem
+        v-for="(repo, index) in currentSlice"
+        :key="repo.id"
+        :repo="repo"
+        :index="index"
+        :currentPage="currentPage"
+      />
+    </div>
+
+    <div v-if="isLoading">
+      <RepoLoader v-for="n in reposPerPage" :key="n" />
+    </div>
+
+    <RepoPagination
+      @page-jump="goToPage"
+      @next-page="nextPage()"
+      @prev-page="prevPage()"
+      :pageNumbers="pageNumbers"
+      :currentPage="currentPage"
+    />
+  </section>
+</template>
+
 <script setup>
 import { onMounted, ref, computed } from 'vue'
 import { RouterLink } from 'vue-router'
@@ -54,42 +90,6 @@ const goToPage = (btnNum) => {
   currentPage.value = btnNum
 }
 </script>
-
-<template>
-  <section class="repo-list">
-    <div class="repo-header">
-      <RouterLink to="/">
-        <div class="back-btn flex">
-          <i class="fa-solid fa-arrow-left"></i>
-          <p>Back</p>
-        </div>
-      </RouterLink>
-      <h3>Repositories</h3>
-    </div>
-
-    <div v-if="!isLoading">
-      <RepoItem
-        v-for="(repo, index) in currentSlice"
-        :key="repo.id"
-        :repo="repo"
-        :index="index"
-        :currentPage="currentPage"
-      />
-    </div>
-
-    <div v-if="isLoading">
-      <RepoLoader v-for="n in reposPerPage" :key="n" />
-    </div>
-
-    <RepoPagination
-      @page-jump="goToPage"
-      @next-page="nextPage()"
-      @prev-page="prevPage()"
-      :pageNumbers="pageNumbers"
-      :currentPage="currentPage"
-    />
-  </section>
-</template>
 
 <style scoped>
 .repo-list {

@@ -1,3 +1,9 @@
+<template>
+  <div className="user-img">
+    <img :src="img" alt="user profile" />
+  </div>
+</template>
+
 <script setup>
 import { toRefs } from 'vue'
 
@@ -7,12 +13,6 @@ const props = defineProps({
 
 const { img } = toRefs(props)
 </script>
-
-<template>
-  <div className="user-img">
-    <img :src="img" alt="user profile" />
-  </div>
-</template>
 
 <style scoped>
 .user-img img {
