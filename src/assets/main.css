@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap');
+
+:root {
+  --primary: #141c2f;
+  --secondary: #1f2a48;
+  --blue: #0c57b1;
+  --grey: #878d9b;
+  --white: #fff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'DM Mono', sans-serif;
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+.flex {
+  display: flex;
+}
+
+a {
+  color: var(--white);
+  text-decoration: none;
+}
+
+.btn-active {
+  border: 1px solid var(--white);
+}
+
+.button {
+  border: 1px solid black;
+}
+
+.shimmer-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  animation: loading 2s infinite;
+}
+
+.shimmer {
+  width: 50%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.02);
+  transform: skew(-20deg);
+  box-shadow: 0 0 30px 30px rgba(255, 255, 255, 0.02);
+}
+
+@keyframes loading {
+  0% {
+    transform: translateX(-150%);
+  }
+  50% {
+    transform: translateX(-60%);
+  }
+  100% {
+    transform: translateX(150%);
+  }
+}
